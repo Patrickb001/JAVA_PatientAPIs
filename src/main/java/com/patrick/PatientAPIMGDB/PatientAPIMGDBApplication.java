@@ -33,13 +33,14 @@ public class PatientAPIMGDBApplication {
 					LocalDate.of(1990, Month.NOVEMBER, 21),
 					184, Gender.MALE, "Myocarditis", LocalDateTime.now(), "chrissmith12@gmail.com", List.of(""));
 
-			repository.findPatientByEmail("jahmed@gmail.com")
-					.ifPresentOrElse(p -> System.out.println(p + " already exists"), () -> {
-						System.out.println("Inserting patient " + patient);
-						repository.insert(patient);
-						repository.insert(patient2);
-						repository.insert(patient3);
-					});
+//			Adds patients to mongodb database on initial load
+//			repository.findPatientByEmail("jahmed@gmail.com")
+//					.ifPresentOrElse(p -> System.out.println(p + " already exists"), () -> {
+//						System.out.println("Inserting patient " + patient);
+//						repository.insert(patient);
+//						repository.insert(patient2);
+//						repository.insert(patient3);
+//					});
 		};
 	}
 

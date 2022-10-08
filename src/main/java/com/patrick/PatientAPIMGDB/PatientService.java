@@ -14,7 +14,12 @@ public class PatientService {
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
+
     public Optional<Patient> getPatientById(Integer id) {
         return patientRepository.findPatientById(id);
+    }
+
+    public Patient addPatient(Patient patient){
+        return patientRepository.insert(patient);
     }
 }
