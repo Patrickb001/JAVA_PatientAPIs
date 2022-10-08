@@ -10,7 +10,12 @@ public class Counter {
         return id;
     }
 
-    public static void increment(){
+    public static void setId(Integer value){
+        id = value;
+    }
+
+    public static Integer increment(){
         id++;
+        return id;
     }
 }

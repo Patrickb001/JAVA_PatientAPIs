@@ -14,4 +14,6 @@ public interface PatientRepository
 
     Patient insert(Patient patient);
 
+    Patient save(Patient patient);
+
 }

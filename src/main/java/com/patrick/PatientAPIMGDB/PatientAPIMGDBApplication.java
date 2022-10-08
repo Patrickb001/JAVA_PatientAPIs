@@ -23,15 +23,30 @@ public class PatientAPIMGDBApplication {
 	CommandLineRunner runner(
 			PatientRepository repository, MongoTemplate mongoTemplate) {
 		return args -> {
-			Patient patient = new Patient(Counter.getId(),"Jamila Ahmed",
-					LocalDate.of(1974, Month.APRIL, 10),
-					124, Gender.FEMALE, "Acute Kidney Failure", LocalDateTime.now(), "jahmed@gmail.com", List.of("Heart Failure", "Fracture Ankle"));
-			Patient patient2 = new Patient(Counter.getId(),"John Adams",
-					LocalDate.of(1985, Month.DECEMBER, 1),
-					284, Gender.MALE, "Choledocolithiasis", LocalDateTime.now(), "adams.john@yahoo.com", List.of("Hepatitis", "High Cholesterol", "Diabetes"));
-			Patient patient3 = new Patient(Counter.getId(),"Chris Smith",
-					LocalDate.of(1990, Month.NOVEMBER, 21),
-					184, Gender.MALE, "Myocarditis", LocalDateTime.now(), "chrissmith12@gmail.com", List.of(""));
+			Patient patient = new Patient("Jamila Ahmed",
+					"1974, Month.APRIL, 10",
+					"124", Gender.FEMALE, "Acute Kidney Failure",  "jahmed@gmail.com", List.of("Heart Failure", "Fracture Ankle"));
+
+
+
+			Patient patient2 = new Patient("John Adams",
+					"1985, 12, 1",
+					"284", Gender.MALE, "Choledocolithiasis",  "adams.john@yahoo.com", List.of("Hepatitis", "High Cholesterol", "Diabetes"));
+
+
+
+			Patient patient3 = new Patient("Chris Smith",
+					"1990, 11, 21",
+					"184", Gender.MALE, "Myocarditis",  "chrissmith12@gmail.com", List.of(""));
+
+			patient.setId(Counter.getId());
+			patient2.setId(Counter.getId());
+			patient3.setId(Counter.getId());
+
+			patient.setCreatedAt(LocalDateTime.now());
+			patient2.setCreatedAt(LocalDateTime.now());
+			patient3.setCreatedAt(LocalDateTime.now());
+
 
 //			Adds patients to mongodb database on initial load
 //			repository.findPatientByEmail("jahmed@gmail.com")

@@ -22,4 +22,7 @@ public class PatientService {
     public Patient addPatient(Patient patient){
         return patientRepository.insert(patient);
     }
+    public Patient updatePatient(Patient patient){
+        return patientRepository.save(patient);
+    }
 }
