@@ -16,4 +16,6 @@ public interface PatientRepository
 
     Patient save(Patient patient);
 
+    void deleteById(Integer id);
+
 }

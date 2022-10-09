@@ -36,13 +36,11 @@ public class PatientController {
                         patient.setCreatedAt(LocalDateTime.now());
                         patientService.addPatient(patient);
 					});
-        return allPatients;
+        return patientService.getAllPatients();
     }
     @PutMapping("id")
     public Patient updatePatient(@RequestParam(value="id") Integer value , @RequestBody Patient patient){
         var foundPatient = patientService.getPatientById(value).get();
-//        var optionalPatient = patientService.getPatientById(value);
-//        var foundPatient = optionalPatient.get();
 
         if (patient.getName() != null)
             foundPatient.setName(patient.getName());
@@ -67,6 +65,14 @@ public class PatientController {
         System.out.println(foundPatient);
 
         return foundPatient;
+    }
 
+    @DeleteMapping("id")
+    public List<Patient> deletePatient(@RequestParam(value="id") Integer value){
+        patientService.deletePatient(value);
+
+        var allPatients = patientService.getAllPatients();
+
+        return allPatients;
     }
 }
