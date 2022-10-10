@@ -1,10 +1,11 @@
-package com.patrick.PatientAPIMGDB;
+package com.patrick.PatientAPIMGDB.model;
 
+import com.patrick.PatientAPIMGDB.model.Gender;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,15 +13,27 @@ import java.util.List;
 @Document
 public class Patient {
     @Id
-    private Integer id;
+    private String id;
+
+    @NotEmpty(message = "Name is required")
     private String name;
+
+    @NotEmpty(message = "Date of Birth is required")
     private String DOB;
+
+    @NotEmpty(message = "Weight is required")
     private String weight;
+
+    @NotEmpty(message = "Gender is required")
     private Gender gender;
+
+    @NotEmpty(message = "Diagnosis is required")
     private String diagnosis;
     private LocalDateTime createdAt;
 
     private String email;
+
+    @NotEmpty(message = "comorbidities is required")
     private List<String> comorbidities;
 
     public Patient() {
@@ -36,7 +49,7 @@ public class Patient {
         this.comorbidities = comorbidities;
     }
 
-    public Integer getId(){
+    public String getId(){
         return id;
     }
 
