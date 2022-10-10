@@ -1,5 +1,7 @@
-package com.patrick.PatientAPIMGDB;
+package com.patrick.PatientAPIMGDB.service;
 
+import com.patrick.PatientAPIMGDB.repository.PatientRepository;
+import com.patrick.PatientAPIMGDB.model.Patient;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class PatientService {
         return patientRepository.findAll();
     }
 
-    public Optional<Patient> getPatientById(Integer id) {
+    public Optional<Patient> getPatientById(String id) {
         return patientRepository.findPatientById(id);
     }
 
@@ -26,7 +28,7 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    public void deletePatient(Integer id){
+    public void deletePatient(String id){
         patientRepository.deleteById(id);
     }
 

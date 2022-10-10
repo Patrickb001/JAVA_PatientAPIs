@@ -1,5 +1,8 @@
 package com.patrick.PatientAPIMGDB;
 
+import com.patrick.PatientAPIMGDB.model.Gender;
+import com.patrick.PatientAPIMGDB.model.Patient;
+import com.patrick.PatientAPIMGDB.repository.PatientRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,9 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 
 @SpringBootApplication
